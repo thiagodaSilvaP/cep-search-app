@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
+import {AiOutlineSearch} from 'react-icons/ai';
 
 import { apiContext } from '../../contexts/ApiContext';
 import { api } from '../../services/api';
+
+import {SearchCepContainer} from './style';
 
 export const SearchCep = () => {
     const [inputValue, setInputValue] = useState(undefined);
@@ -15,7 +18,7 @@ export const SearchCep = () => {
 
     const handleChangeInput = (event) => setInputValue(event.target.value)
     return (
-        <div className="search-cep-container">
+        <SearchCepContainer>
             <input
                 type="text"
                 name="search"
@@ -23,7 +26,7 @@ export const SearchCep = () => {
                 value={inputValue || ""}
                 onChange={handleChangeInput}
             />
-            <button onClick={handleClickButton}>Enviar</button>
-        </div>
+            <button onClick={handleClickButton}><AiOutlineSearch/></button>
+        </SearchCepContainer>
     );
 };
